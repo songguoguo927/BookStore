@@ -17,8 +17,17 @@ public class IUserServiceImpl implements IUserService{
 
 	@Override
 	public User loginUser(String name, String password) throws UserException {
-		// TODO Auto-generated method stub
-		return null;
+		// service的逻辑怎么写：拿用户名去数据库找
+		User user=dao.findUserByName(name);//调用dao层的findUserByName方法
+		if(user==null) {
+			throw new UserException("用户名不存在");//异常扔给方法，谁调用方法，谁解决异常
+		}else {
+			if(password.equals(user.getPassword())) {
+				return user;
+			}else {
+				throw new UserException("密码错误");
+			}
+		}
 	}
 
 	@Override
