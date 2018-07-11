@@ -24,7 +24,7 @@
 					data:{name:name},
 					dataType:"text",
 					success:function(data){
-						alert(data);
+						$("#div").text(data);
 					}
 				});
 			}

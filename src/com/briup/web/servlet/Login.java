@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.briup.service.IUserService;
+import com.briup.service.impl.IUserServiceImpl;
+
 @WebServlet("/LoginSer")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +17,10 @@ public class Login extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String name=request.getParameter("name");
-		String password=request.getParameter("password");
+		String passwd=request.getParameter("password");
+		//去找service
+		 IUserService service=new  IUserServiceImpl();
+		 
 	}
 
 	/**
@@ -22,6 +28,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("****棒呆*****");
 		doGet(request, response);
 	}
 

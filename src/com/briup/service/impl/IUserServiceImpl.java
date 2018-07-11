@@ -11,6 +11,7 @@ public class IUserServiceImpl implements IUserService{
 	@Override
 	public void registerUser(User user) throws UserException {
 		// TODO Auto-generated method stub
+		//把前台传过来的合法数据传给dao层
 		dao.saveUser(user);
 	}
 

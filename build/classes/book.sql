@@ -126,9 +126,9 @@ insert into s_price_scope(id,min,max) values(2,101,200);
 insert into s_price_scope(id,min,max) values(3,201,300);
 insert into s_price_scope(id,min,max) values(4,301,400);
 
-insert into s_product(id,name,price,publish,img,publishdate,cate_detail_id) values(1,'草原帝国',100,'南京出版社','upload/c66f7019e93746c1b98da6421f27d088.jpg#upload/c66f7019e93746c1b98da6421f27d088.jpg',1529299201214,1);
-insert into s_product(id,name,price,publish,img,publishdate,cate_detail_id) values(2,'java入门',70,'清华出版社','upload/6c53626c6a5a41fda4990c2e552cd416.jpg#upload/6c53626c6a5a41fda4990c2e552cd416.jpg',1529299201214,8);
-insert into s_product(id,name,price,publish,img,publishdate,cate_detail_id) values(3,'android开发',80,'清华出版社','upload/903d4092f8e24f4f9c8b56a18a8f1cac.jpg#upload/903d4092f8e24f4f9c8b56a18a8f1cac.jpg',1529299201214,8);
+insert into s_product(id,name,price,publish,img,publishdate,cate_detail_id) values(1,'草原帝国',100,'南京出版社','upload/c66f7019e93746c1b98da6421f27d088.jpg#upload/c66f7019e93746c1b98da6421f27d088.jpg','08-6月-18',1);
+insert into s_product(id,name,price,publish,img,publishdate,cate_detail_id) values(2,'java入门',70,'清华出版社','upload/6c53626c6a5a41fda4990c2e552cd416.jpg#upload/6c53626c6a5a41fda4990c2e552cd416.jpg','07-6月-18',8);
+insert into s_product(id,name,price,publish,img,publishdate,cate_detail_id) values(3,'android开发',80,'清华出版社','upload/903d4092f8e24f4f9c8b56a18a8f1cac.jpg#upload/903d4092f8e24f4f9c8b56a18a8f1cac.jpg','05-6月-18',8);
 
 
 

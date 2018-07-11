@@ -24,13 +24,13 @@ $(function(){
 				data:{name:name},
 				dataType:"text",
 				success:function(data){
-					alert(data);
+					$("#div").text(data);
 				}
 			});
 		}
 	});
 //给登录按钮绑定一个鼠标单击事件
-      $(".btn_submit").click(function(){
+      $("input[type='submit']").click(function(){
 	//获取标签对象
 	var name=$("input[name='name']").val();
 	var passwd=$("input[name='password']").val();
@@ -62,7 +62,7 @@ $(function(){
                     </h2>
                     <div class="si_box">
                     	<span class="usr_icon"></span>
-                        <input type="text" name="name"/>
+                        <input type="text" name="name"/><span id="div"></span>
                     </div>
                     <!--分割条-->
                     <div class="c10"></div>
@@ -75,7 +75,7 @@ $(function(){
                         <a class="treg" href="register.html">立即注册</a>
                     </div>
                     <div class="sub_box">
-                    	<input class="btn_submit" type="submit" value="登陆"/>
+                    	<input  type="submit" value="登陆"/>
                     </div>
                  </form>
                     <div>

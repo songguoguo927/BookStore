@@ -12,7 +12,7 @@ import com.briup.dao.IUserDao;
 
 public class IUserDaoImpl implements IUserDao{
 	private String driver="oracle.jdbc.driver.OracleDriver";
-	private String url="jdbc:oracle:thin:@192.168.43.216:1521:XE";
+	private String url="jdbc:oracle:thin:@127.0.0.1:1521:XE";
 	private String username="estore";
 	private String password="estore";
 	@Override
@@ -59,7 +59,7 @@ public class IUserDaoImpl implements IUserDao{
 		User user=null;
 		try {
 			Class.forName(driver);
-			conn=DriverManager.getConnection(name, username, password);
+			conn=DriverManager.getConnection(url, username, password);
 			String sql="select id,username,password,zip,address,phone,email,dob  from s_user where username=?";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, name);

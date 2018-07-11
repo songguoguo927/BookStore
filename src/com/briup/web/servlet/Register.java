@@ -17,7 +17,7 @@ import com.briup.service.impl.IUserServiceImpl;
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//解决浏览器发过来的数据乱码
+		//解决浏览器发过来的数据乱码,接收前台传过来的数据
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String name=request.getParameter("name");
@@ -26,6 +26,7 @@ public class Register extends HttpServlet {
 		String address=request.getParameter("address");
 		String telephone=request.getParameter("telephone");
 		String email=request.getParameter("email");
+		//封装对象
 		User user=new User();
 		user.setAddress(address);
 		user.setDob(new Date());
@@ -34,8 +35,10 @@ public class Register extends HttpServlet {
 		user.setPhone(telephone);
 		user.setUsername(name);
 		user.setZip(zip);
+		//构建service
 		IUserService service=new IUserServiceImpl();
 		try {
+			//并把user传给service
 			service.registerUser(user);
 		} catch (UserException e) {
 			// TODO Auto-generated catch block
