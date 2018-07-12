@@ -1,5 +1,5 @@
 package com.briup.common.exception;
-
+//异常的封装
 public class UserException extends Exception {
 
 	private static final long serialVersionUID = 1L;

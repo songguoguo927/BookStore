@@ -48,7 +48,7 @@
         </div>
         <div class="h3_right">
         	<div class="myyy">
-            	<a href="userinfo.html">个人信息</a>
+            	<a href="user/userinfo.html">个人信息</a>
                 <span class="sj_down"></span>
              </div>
             <div class="tsc">

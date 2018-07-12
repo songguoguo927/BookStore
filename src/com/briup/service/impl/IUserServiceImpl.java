@@ -40,7 +40,9 @@ public class IUserServiceImpl implements IUserService{
 	@Override
 	public void updateUserInfo(User user) throws UserException {
 		// TODO Auto-generated method stub
-		
+		//修改用户信息，没有业务逻辑，故这里直接调用dao层里去了。
+		dao.updateUser(user);
+		//调完后去dao层写jdbc，updateUser在IUserDaoImpl.java
 	}
 
 }

@@ -11,6 +11,10 @@ public interface IUserDao {
 	 * 基于名字查找对象
 	 */
 	public User findUserByName(String name);
+	/*
+	 * 修改用户
+	 */
+	public void updateUser(User user);
 }
 
 

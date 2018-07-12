@@ -2,6 +2,7 @@ package com.briup.dao.impl;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,7 +56,7 @@ public class IUserDaoImpl implements IUserDao{
 	public User findUserByName(String name) {
 		Connection conn=null;
 		PreparedStatement ps=null;
-		ResultSet rs=null;
+		ResultSet rs=null;//结果集一般专门针对于select查询
 		User user=null;
 		try {
 			Class.forName(driver);
@@ -94,8 +95,43 @@ public class IUserDaoImpl implements IUserDao{
 		return user;
 	}
 
+@Override
+public void updateUser(User user) {
+	//第一步注册驱动，与上面类似
+	//封装：把代码重复率高的部分写进一个公共的方法里
+	Connection conn=null;
+	PreparedStatement ps=null;//PreparedStatement对象的目的编译sql语句，并把数据发给数据库
+	//不需要结果集
+	try {
+		Class.forName(driver);
+		conn=DriverManager.getConnection(url,username,password);
+		String sql="update s_user set password=?,zip=?,adress=?,phone=?,email=? where username=?";//修改语句
+		ps=conn.prepareStatement(sql);
+		ps.setString(1, user.getPassword());
+		ps.setString(2, user.getZip());
+		ps.setString(3, user.getAddress());
+		ps.setString(4, user.getPhone());
+		ps.setString(5, user.getEmail());
+		ps.setString(6, user.getUsername());
+		ps.execute();
+		
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		try {
+			if(ps!=null)ps.close();
+			if(conn!=null)conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
-
+}
 
 
 

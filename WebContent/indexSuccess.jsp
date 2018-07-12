@@ -14,16 +14,43 @@
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/icons.css" />
 <link rel="stylesheet" href="css/table.css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+      $(function(){
+    	  //退出按钮，session里面有user对象时，添加退出按钮
+    	  var m="${sessionScope.user}"
+    	  if(m.trim().length!=0){
+    		  var ss="<li><a href="index.jsp">退出</a>|</li>";
+    		  ${".top_bars"}.prepend(ss);
+    		  //欢迎某某按钮
+    		  ${".top_lr"}.append("<li><a>欢迎 <font style="color:red; font-weight:900;">${sessionScope.user.username}</font></a></li>");
+    		  
+    	  }else{
+    		  ${".top_lr"}.append("<li><a href="login.jsp" style="color: red;">亲,请登入</a></li>"); 
+    	  }
+    	  
+    	  /*servlet把数据写回给页面的方式
+    	  1，
+            	  var msg=$("input[name='msg']").val();
+            	  if(msg.trim().length!=0){
+            		  alert(msg);
+            	  }*/
+          /*2  	  var msg="${requestScope.msg}";
+            	  if(msg.trim().length!=0){
+            		  alert(msg);
+          */    });
+</script>
 </head>
 <body>
+	<input type="hidden" name="msg" value="${requestScope.msg }">
 	<!--顶部-->
 	<div class="top">
     	<div class="top_center">
     		<ul class="top_lr">
-            	<li><a>欢迎 张三</a></li>
+            	<!-- 欢迎按钮位置 -->
             </ul>
             <ul class="top_bars">
-            	<li><a href="index.html">退出</a>|</li>
+            	<!-- 退出按钮位置 -->
                 <li><a href="#">我的订单<span class="jt_down"></span></a>|</li>
                 <li><a href="#">关注杰普<span class="jt_down"></span></a>|</li>
                 <li><a href="#">网站导航<span class="jt_down"></span></a></li>
@@ -39,20 +66,18 @@
                 <span>搜索</span>
             </div>
             <p>
-            	<a href="list.html">文学类</a>|
-            	<a href="list.html">教育类</a>|
-                <a href="list.html">计算机</a>|
-                <a href="list.html">儿童类</a>|
-                <a href="list.html">漫画类</a>|
+            <c:forEach items="${applicationScope.cates }" var="cate">
+            	<a href="listCateBookSer?id=${cate.id}">${cate.name}</a>|
+            	</c:forEach>
             </p>
         </div>
         <div class="h3_right">
         	<div class="myyy">
-            	<a href="userinfo.html">个人信息</a>
+            	<a href="user/userinfo.jsp">个人信息</a>
                 <span class="sj_down"></span>
              </div>
             <div class="tsc">
-            	<a href="emptyCar.html">去购物车结算</a>
+            	<a href="emptyCar.jsp">去购物车结算</a>
                 <span class="sj_right"></span>
             </div>
         </div>
@@ -64,11 +89,9 @@
                 全部图书分类
             </div>
             <ul>
-                <li><a href="list.html">文学类</a></li>
-                <li><a href="list.html">教育类</a></li>
-                <li><a href="list.html">计算机</a></li>
-                <li><a href="list.html">儿童类</a></li>
-                <li><a href="list.html">漫画类</a></li>
+            <c:forEach items="${applicationScope.cates }" var="cate">
+                <li><a href="listCateBookSer?id=${cate.id}">${cate.name}</a></li>
+              </c:forEach>  
             </ul>
         </div>
     </div>
@@ -77,59 +100,16 @@
     	<div class="c3_b1">
         	<div class="c3_b1_left">
             	<dl>
+            	 <c:forEach items="${applicationScope.cates }" var="cate">
                		<dd>
-                    	<h1>文学类</h1>
+                    	<h1>${cate.name}</h1>
                     	<p>
-                        	<a href="list.html">文学1</a>
-                           	<a href="list.html">文学2</a>
-                            <a href="list.html">文学3</a>
-                            <a href="list.html">文学4</a>
+                    	<c:forEach items="${cate.detail}" var="cd">
+                        	<a href="listCateDetailBookSer?id=${cd.id }">${cd.name}</a><!-- 简报，产品，写法与此类似，侧边栏forEach循环 -->
+                         </c:forEach>  
                       	</p>
                     </dd>
-                    <dd>
-                    	<h1>教育类</h1>
-                    	<p>
-                        	<a href="list.html">教育1</a>
-                           	<a href="list.html">教育2</a>
-                      	</p>
-                    </dd>
-                    <dd>
-                    	<h1>计算机</h1>
-                    	<p>
-                           	<a href="list.html">计算机1</a>
-                            <a href="list.html">计算机2</a>
-                            <a href="list.html">计算机3</a>
-                      	</p>
-                    </dd>
-                    <dd>
-                    	<h1>儿童类</h1>
-                    	<p>
-                        	<a href="list.html">图书1</a>
-                           	<a href="list.html">图书2</a>
-                            <a href="list.html">图书3</a>
-                      	</p>
-                    </dd>
-                    <dd>
-                    	<h1>漫画类</h1>
-                    	<p>
-                        	<a href="list.html">漫画1</a>
-                      	</p>
-                    </dd>
-                    <dd>
-                    	<h1>工具书</h1>
-                    	<p>
-                        	<a href="list.html">工具书1</a>
-                           	<a href="list.html">工具书2</a>
-                      	</p>
-                    </dd>
-                    <dd class="last">
-                    	<h1>期刊</h1>
-                    	<p>
-                        	<a href="list.html">期刊1</a>
-                           	<a href="list.html">期刊2</a>
-                            <a href="list.html">期刊3</a>
-                      	</p>
-                    </dd>
+             </c:forEach>       
                 </dl>
             </div>
             <div class="c3_b1_center">

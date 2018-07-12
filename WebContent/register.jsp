@@ -89,7 +89,7 @@
 	<div class="container2">
     	<div class="header2">
         	<div>
-            	<a href="index.html"><img class="logo" src="images/logon_register.png"></a>
+            	<a href="index.jsp"><img class="logo" src="images/logon_register.png"></a>
             </div>
             <div>
             	<ul class="tabs">
@@ -97,7 +97,7 @@
                 </ul>
             </div>
             <div class="tlg">
-            	已有账号 <a href="login.html">登陆</a>
+            	已有账号 <a href="login.jsp">登陆</a>
             </div>
         </div>
         <div class="content2">

@@ -1,5 +1,9 @@
 package com.briup.dao;
 
-public interface ICategoryDao {
+import java.util.List;
 
+import com.briup.bean.Category;
+
+public interface ICategoryDao {
+	public List<Category> listAllCates();
 }

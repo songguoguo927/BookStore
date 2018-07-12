@@ -33,10 +33,8 @@
 				input.val(value);
 			}else{
 				input.val(0);
-			}
-			
+			}		
 		});
-		
 		
 	});
 </script>
@@ -52,8 +50,8 @@ function addShopCart(bookname){
 	<div class="top">
     	<div class="top_center">
             <ul class="top_bars">
-            	<li><a href="index.html">退出</a>|</li>
-                <li><a href="confirmList.html">我的订单<span class="jt_down"></span></a>|</li>
+            	<li><a href="index.jsp">退出</a>|</li>
+                <li><a href="confirmList.jsp">我的订单<span class="jt_down"></span></a>|</li>
                 <li><a href="#">关注杰普<span class="jt_down"></span></a>|</li>
                 <li><a href="#">网站导航<span class="jt_down"></span></a></li>
             </ul>
@@ -70,11 +68,11 @@ function addShopCart(bookname){
         </div>
         <div class="h3_right">
         	<div class="myyy">
-            	<a href="userinfo.html">个人信息</a>
+            	<a href="userinfo.jsp">个人信息</a>
                 <span class="sj_down"></span>
              </div>
             <div class="tsc">
-            	<a href="shopCart.html">去购物车结算</a>
+            	<a href="shopCart.jsp">去购物车结算</a>
                 <span class="sj_right"></span>
             </div>
         </div>
@@ -86,11 +84,11 @@ function addShopCart(bookname){
                 全部图书分类
             </div>
             <ul>
-                <li><a href="list.html">文学类</a></li>
-                <li><a href="list.html">教育类</a></li>
-                <li><a href="list.html">计算机</a></li>
-                <li><a href="list.html">儿童类</a></li>
-                <li><a href="list.html">漫画类</a></li>
+                <li><a href="list.jsp">文学类</a></li>
+                <li><a href="list.jsp">教育类</a></li>
+                <li><a href="list.jsp">计算机</a></li>
+                <li><a href="list.jsp">儿童类</a></li>
+                <li><a href="list.jsp">漫画类</a></li>
             </ul>
         </div>
     </div>

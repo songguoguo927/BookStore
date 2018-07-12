@@ -15,6 +15,20 @@
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 $(function(){
+	/*$("input[name='name']").blur(function(){
+	var name=$("input[name='name']").val();
+	if(name.trim().length!=0){
+		$.ajax({
+			url:"YnUserSer",
+			type:"post",
+			data:{name:name},
+			dataType:"text",
+			success:function(data){
+				$("#div").text(data);
+			}
+		});
+	}
+});*/
 	//提示
 	var msg=$("input[name='msg']").val();
 	if(msg.trim().length!=0){
